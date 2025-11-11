@@ -1,0 +1,91 @@
+/* Full viewport below the (assumed) menu bar (34px) */
+.ideas-viewport {
+  position: fixed;
+  top: 34px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  background: #f7f8fa;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Grid container */
+.ideas-grid-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 3px;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+
+/* react-grid-layout root */
+.ideas-grid {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* react-grid-layout item flex behavior */
+.react-grid-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Panel wrapper */
+.ideas-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Panel header: compact, 11px, bold */
+.ideas-panel-header {
+  flex: 0 0 22px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e3a6d !important; /* light navy blue for header text */
+  background: rgba(16, 24, 40, 0.03);
+  border-bottom: 1px solid #e6eaf0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Panel body fills remaining height with flex */
+.ideas-panel-body {
+  flex: 1 1 0;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* ag-grid container */
+.ideas-ag {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+  border: 1px solid #e1e6ef;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
