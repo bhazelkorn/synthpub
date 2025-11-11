@@ -26,11 +26,3 @@ html, body, #root {
   height: calc(100vh - 56px);
   overflow: auto;
 }
-
-.home-page, .about-page {
-  padding: 34px 40px;
-}
-
-.ag-theme-balham .ag-cell {
-  border-right: 1px solid var(--ag-border-color); /* Add a right border to all cells */
-}
