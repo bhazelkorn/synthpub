@@ -1,0 +1,39 @@
+.menu-bar {
+  display: flex;
+  align-items: center;
+  background:rgba(0, 64, 94, 1);
+  color: #fff;
+  padding: -3 32px;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.menu-logo {
+  padding: 0px 12px;
+  height: 30px;
+  margin-top: 0px;
+  margin-left: 3px;
+  display: flex;
+  float: left;
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.menu-link {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 24px;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.menu-link.active, .menu-link:hover {
+  background: #3949ab;
+}
