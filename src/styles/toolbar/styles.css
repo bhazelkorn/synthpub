@@ -1,0 +1,200 @@
+/* source/styles/toolbar/styles.css
+   Full toolbar stylesheet — self-contained.
+   - Blue date-range buttons (WTD/MTD/YTD/ITD)
+   - Selected button shows a different background color (no halo/glow)
+   - Grouped (flush) appearance with subtle separators
+   - Accessible focus-visible outline (no large shadow)
+*/
+
+/* Toolbar container */
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px 0 6px;
+  height: 38px;
+  min-height: 38px;
+  background: #e7eaf3;
+  border-bottom: 1px solid #d0d7de;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Toolbar groups base */
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Three zones: left (owner), center (buttons + date), right (primary action) */
+.toolbar-left,
+.toolbar-group-left { flex: 1 1 0; justify-content: flex-start; display: flex; align-items: center; }
+.toolbar-center,
+.toolbar-group-center { flex: 1 1 0; justify-content: center; display: flex; align-items: center; gap: 8px; }
+.toolbar-right,
+.toolbar-group-right { flex: 1 1 0; justify-content: flex-end; display: flex; align-items: center; }
+
+/* Labels, dropdown, date inputs */
+.toolbar-label {
+  font-size: 0.75rem;
+  color: #223;
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.toolbar-dropdown,
+.toolbar-date {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border: 1px solid #bbc;
+  border-radius: 5px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.toolbar-date-sep {
+  margin: 0 6px;
+  color: #666;
+}
+
+/* -------------------------
+   Buttons: grouped (flush) and standalone
+   ------------------------- */
+
+/* Button group wrapper (segmented look) */
+.toolbar-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0; /* we handle separators with borders */
+  box-sizing: border-box;
+}
+
+/* Generic toolbar button (used for WTD/MTD/YTD/ITD and others) */
+.toolbar-btn {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #2b6cb0; /* base blue for toolbar buttons */
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 120ms ease, transform 80ms ease, border-color 120ms ease;
+  font-weight: 600;
+  line-height: 1;
+  height: 28px;
+  box-sizing: border-box;
+  box-shadow: none; /* prefer no shadow by default */
+}
+
+/* Hover states */
+.toolbar-btn:hover {
+  background: #2f74c4;
+}
+
+/* Focus: use focus-visible for keyboard users; avoid glow shadows */
+.toolbar-btn:focus {
+  /* keep native focus behavior minimal; prefer focus-visible for visible ring */
+  outline: none;
+  box-shadow: none;
+}
+.toolbar-btn:focus-visible {
+  outline: 2px solid rgba(43,108,176,0.22);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Active/pressed pseudo-class visual (mouse) - do not create shadow */
+.toolbar-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* -------------------------
+   Grouped button specifics (segmented appearance)
+   ------------------------- */
+
+.toolbar-btn-group .toolbar-btn {
+  margin: 0;
+  border-radius: 0;
+  padding: 6px 10px;
+  background: #2b6cb0;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  box-shadow: none;
+}
+
+/* Rounded ends on the first/last button in the group */
+.toolbar-btn-group .toolbar-btn:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.toolbar-btn-group .toolbar-btn:last-child {
+  border-right: 1px solid rgba(0,0,0,0.08);
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* subtle separator between adjacent buttons implemented with a faint border-left */
+.toolbar-btn-group .toolbar-btn + .toolbar-btn {
+  border-left: 1px solid rgba(255,255,255,0.06);
+  box-shadow: none;
+}
+
+/* -------------------------
+   Selected / active state
+   Put strong, specific selectors at the end so they win.
+   We intentionally avoid adding any shadow/halo — only change the button's own styles.
+   ------------------------- */
+
+/* Active within a group (high specificity) */
+.toolbar-btn-group .toolbar-btn.active,
+.toolbar-btn-group .toolbar-btn[aria-pressed="true"] {
+  background: #153e75; /* darker navy-blue */
+  color: #ffffff;
+  border-color: rgba(15,42,84,0.6);
+  box-shadow: none !important;
+}
+
+/* Active when not in a group */
+.toolbar-btn.active,
+.toolbar-btn[aria-pressed="true"] {
+  background: #153e75;
+  color: #ffffff;
+  border-color: rgba(15,42,84,0.6);
+  box-shadow: none !important;
+}
+
+/* Ensure adjacent separator remains subtle when neighbor is active */
+.toolbar-btn-group .toolbar-btn.active + .toolbar-btn,
+.toolbar-btn-group .toolbar-btn + .toolbar-btn.active {
+  border-left-color: rgba(255,255,255,0.04);
+}
+
+/* -------------------------
+   Primary button on the right (Export)
+   ------------------------- */
+.toolbar-btn-primary {
+  background: #0b67a4;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 28px;
+  box-sizing: border-box;
+  transition: background-color 120ms ease;
+  box-shadow: none;
+}
+.toolbar-btn-primary:hover { background: #095a90; }
+.toolbar-btn-primary:focus-visible {
+  outline: 2px solid rgba(11,103,164,0.22);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* -------------------------
+   Small layout helpers kept from original layout
+   ------------------------- */
+.toolbar-label { margin-right: 6px; }
+.toolbar-dropdown, .toolbar-date { min-height: 28px; }

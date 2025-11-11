@@ -1,0 +1,37 @@
+.number-cell {
+  text-align: right;
+}
+
+/* AG Grid / theme-specific rules kept here so the page grid looks correct.
+   If you want these rules globally for every AG Grid instance, move them to a shared file (e.g. src/styles/ag-grid-overrides.css). */
+.ag-theme-balham {
+  height: 100%;
+  width: 100%;
+}
+
+.ag-theme-balham .ag-header {
+  font-size: 12px !important;
+  line-height: 1.1 !important;
+}
+
+.ag-theme-balham .ag-header-cell,
+.ag-theme-balham .ag-header-cell-label,
+.ag-theme-balham .ag-header-cell .ag-cell-label-container,
+.ag-theme-balham .ag-header-cell .ag-header-cell-text,
+.ag-theme-balham .ag-header-cell .ag-header-cell-label .ag-header-cell-text {
+  font-size: 10px !important;
+  line-height: 1.1 !important;
+}
+
+/* tighten vertical spacing so smaller font looks correct */
+.ag-theme-balham .ag-header-cell .ag-cell-label-container {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* if header has multi-line or inner spans, ensure they inherit */
+.ag-theme-balham .ag-header-cell .ag-header-cell-text span,
+.ag-theme-balham .ag-header-cell .ag-header-cell-text > * {
+  font-size: 10px !important;
+  line-height: 1.1 !important;
+}

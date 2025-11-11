@@ -1,0 +1,70 @@
+.performance-viewport {
+  position: fixed;
+  top: 34px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9f9f9;
+  width: 100vw;
+  height: calc(100vh - 34px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* NOTE: toolbar styles were moved to source/styles/toolbar/styles.css.
+   This file now contains only layout and AG Grid rules to avoid duplicate/conflicting toolbar rules. */
+
+.performance-grid-container {
+  min-height: 0;
+  width: 100vw;
+  background: #f0f0f0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.performance-grid {
+  height: 100%;
+  width: 100%;
+  border-radius: 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.performance-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.panel-body {
+  flex: 1 1 0;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nested-panels-scroll {
+  overflow-y: auto;
+}
+
+.nested-panel {
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(40, 60, 90, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+  min-height: 0;
+  /* width is controlled inline in the JSX to avoid scrollbar overlap */
+}
+
