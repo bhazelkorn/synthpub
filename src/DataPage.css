@@ -1,0 +1,59 @@
+/* Layout container */
+.data-viewport {
+  position: fixed;
+  top: 34px; /* space for menu bar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Grid container occupies remainder of viewport, with 5px spacing top and bottom */
+.data-grid-container {
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ag-grid container should fill available height/width */
+.data-ag-container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* small responsive tweak so center area content doesn't overflow on narrow screens */
+@media (max-width: 720px) {
+  .toolbar-center {
+    gap: 6px;
+  }
+  .toolbar-btn-group .toolbar-btn {
+    padding: 6px 8px;
+    font-size: 0.55rem;
+  }
+  .toolbar-date, .toolbar-dropdown {
+    padding: 5px 8px;
+    font-size: 0.6rem;
+  }
+}
+.search-input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Adjust this value for desired roundness */
+  font-size: 10px;
+  outline: none; /* Remove default outline on focus */
+}
+
+.search-input:focus {
+  border-color: #007bff; /* Example: highlight on focus */
+}
